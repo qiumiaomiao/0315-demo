@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='src/jquery-1.11.1.min.js'></script>
+</head>
+<body>
+	<select id="select1">
+		<option value="">请选择</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+	</select>
+	<select id="select2">
+		<option value="">请选择</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+	</select>
+	<select id="select3">
+		<option value="">请选择</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>	
+	</select>
+	
+</body>
+</html>
+<script>
+	var $select1 = $('#select1');
+	var $select2 = $('#select2');
+	var $select3 = $('#select3');
+	$select1.change(function () {
+        var val=$(this).val();
+        $( "#select2 option[value='" + val + "']"+","+"#select3 option[value='" + val + "']").attr("disabled",true);
+    });
+    $select2.change(function () {
+        var val=$(this).val();
+        $( "#select1 option[value='" + val + "']"+","+"#select3 option[value='" + val + "']").attr("disabled",true);
+    });
+     $select3.change(function () {
+        var val=$(this).val();
+        $( "#select1 option[value='" + val + "']"+","+"#select2 option[value='" + val + "']").attr("disabled",true);
+    });
+</script>

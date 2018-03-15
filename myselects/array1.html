@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var arr = [
+				[1,2,33,5],
+				[2,10,15,16],
+				[3,1,21,20]
+			]
+		var temp = new Array();
+		var x = 0,y=0;
+//打印数组
+		document.write("<table id='table'>");
+		for(var i=0; i<4; i++){
+			var max = arr[0][i];
+			document.write('<tr>');
+			for(var j=0;j<arr.length;j++){
+				
+				if(max < arr[j][i]){
+					max = arr[j][i];
+					x = j;
+					y = i;
+				}
+			document.write("<td> "+arr[j][i]+"</td>");
+			}
+			document.write("</tr>");
+			temp.push(max);
+		}
+		document.write("</table>");
+//设置最大值高亮
+		var trs = document.getElementById('table').getElementsByTagName('tr');
+		for (var i = 0; i < trs.length; i++) {
+		
+			for (var k = 0; k < trs[i].cells.length; k++) {
+				var cell = trs[i].cells[k];
+				if(cell.innerHTML == temp[i]){
+					cell.style.color="red";
+				}
+			}
+
+		}
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
+<style>
+	table{border-collapse:collapse;border-spacing:0;border: 1px solid #000;width: 30%; margin: 0px auto;  text-align: center;}
+	table tr,table,td{border-right: 1px solid #000; border-bottom: 1px solid #000;}
+</style>
